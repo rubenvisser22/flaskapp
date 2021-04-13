@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <a class="terugknop" href="/">Back</a>
+    <h1>Users overzicht</h1>
+    <h3 style="padding-left: 2%;">Total Users: {{ totaal }}</h3>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>username</th>
+            <th>Actie</th>
+        </tr>
+        {% for users in results %}
+        <tr>
+            <td>{{ users.id }}</td>
+            <td>{{ users.name }}</td>
+            <td>{{ users.email }}</td>
+            <td>{{ users.username }}</td>
+            <td>
+                <a href="update/{{users.id}}">Update</a>
+                 <br>
+                <a href="delete/{{users.id}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/index" method="POST">
+        <p>id</p>
+        <input type="text" name="id" id="1">
+        <p>Name</p>
+        <input type="text" name="name" id="2">
+        <p>Email</p>
+        <input type="text" name="email" id="3">
+        <p>Username</p>
+        <input type="text" name="username" id="4">
+        <p>password</p>
+        <input type="number" name="password" id="5">
+        <br><input type="submit" value="Voeg User toe">
+    </form>
+</div>
+{% endblock %}

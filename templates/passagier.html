@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Passagier overzicht</h1>
+
+    <table>
+        <tr>
+            <th>Passagier Nummer</th>
+            <th>Voornaam</th>
+            <th>Achternaam</th>
+            <th>Email</th>
+            <th>Ticket Nummer</th>
+            <th>Actie</th>
+        </tr>
+        {% for p,t in passagiers %}
+        <tr>
+            <td>{{ p.PassagierNr }}</td>
+            <td>{{ p.Voornaam }}</td>
+            <td>{{ p.Achternaam }}</td>
+            <td>{{ p.Email }}</td>
+            <td>{{ t.TicketNr }}</td>
+            <td>
+                <a href="">Update</a>
+                 <br>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/passagier.html" method="POST">
+        <p>Passagier Nummer</p>
+        <input type="number" name="passagierNummer" id="1">
+        <p>Voornaam</p>
+        <input type="text" name="voornaam" id="2">
+        <p>Achternaam</p>
+        <input type="text" name="achternaam" id="3">
+        <p>Email</p>
+        <input type="text" name="email" id="4">
+        <p>Ticket Nummer</p>
+        <input type="number" name="ticket" id="5">
+        <br><input type="submit" value="Voeg passagier toe">
+    </form>
+</div>
+{% endblock %}

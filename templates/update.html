@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class="UpdateUsers">
+    <h1>Update User</h1>
+
+    <form action="/update/{{users.id}}" method="POST">
+        <p>ID</p>
+        <input type="text" name="id" id="1" value="{{users.id}}">
+        <p>Name</p>
+        <input type="text" name="name" id="2" value="{{users.name}}">
+        <p>Email</p>
+        <input type="text" name="email" id="3" value="{{users.email}}">
+        <p>Username</p>
+        <input type="text" name="username" id="4" value="{{users.username}}">
+        <br><input type="submit" value="Pas user aan">
+    </form>
+</div>
+{% endblock %}

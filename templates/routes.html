@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="RoutesPagina">
+    <h1>Routes</h1>
+    <table>
+        <tr>
+            <th>Routenummer</th>
+            <th>Vertrekplaats</th>
+            <th>Aankomstplaats</th>
+            <th>Actie</th>
+        </tr>
+        {% for r in routes %}
+        <tr>
+            <td>{{ r.RouteNr }}</td>
+            <td>{{ r.Vertrek_Plaats }}</td>
+            <td>{{ r.Aankomst_Plaats }}</td>
+            <td>
+                <a href="">Update</a>
+                 <br>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+     <form action="/routes.html" method="POST">
+        <p>Routenummer</p>
+        <input type="text" name="RouteNr" id="1">
+         <p>Vertrekplaats</p>
+        <input type="text" name="Aankomst_plaats" id="2">
+         <p>Aankomstplaats</p>
+        <input type="text" name="Vertrek_plaats" id="3">
+        <br><input type="submit" value="Voeg route toe">
+    </form>
+
+     <div class="NavigatieRoutes">
+        <a href="vluchten.html">Terug naar vluchten</a>
+    </div>
+</div>
+{% endblock %}

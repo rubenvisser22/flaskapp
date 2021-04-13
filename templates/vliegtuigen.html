@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <h1>Vliegtuig overzicht</h1>
+
+    <table>
+        <tr>
+            <th>TimeStamp</th>
+            <th>Vliegtuig Nummer</th>
+            <th>Vliegtuig Naam</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
+            <th>Actie</th>
+        </tr>
+        {% for vliegtuig in results %}
+        <tr>
+            <td>{{ vliegtuig.TimeStamp }}</td>
+            <td>{{ vliegtuig.VliegtuigNr }}</td>
+            <td>{{ vliegtuig.VliegtuigNaam }}</td>
+            <td>{{ vliegtuig.Longitude }}</td>
+            <td>{{ vliegtuig.Latitude }}</td>
+            <td>
+                <a href="">Update</a>
+                 <br>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/vliegtuigen.html" method="POST">
+        <p>Vliegtuig Nummer</p>
+        <input type="text" name="vliegtuignr" id="1">
+        <p>Vliegtuig Naam</p>
+        <input type="text" name="vliegtuignaam" id="2">
+        <p>Longitude</p>
+        <input type="float" name="longitude" id="3">
+        <p>Latitude</p>
+        <input type="float" name="latitude" id="4">
+        <br><input type="submit" value="Voeg vliegtuig toe">
+    </form>
+</div>
+{% endblock %}

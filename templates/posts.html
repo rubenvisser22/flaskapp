@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="content">
+    <a class="terugknop" href="/">Back</a>
+    <h1>Posts</h1>
+    <h3 style="padding-left: 2%;">Total Posts: {{ totaal }}</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>User_id</th>
+            <th>Caption</th>
+            <th>Image</th>
+            <th>Actie</th>
+        </tr>
+        {% for posts in posts  %}
+        <tr>
+            <td>{{ posts.id }}</td>
+            <td>{{ posts.user_id }}</td>
+            <td>{{ posts.caption}}</td>
+            <td>{{ posts.image}}</td>
+            <td>
+                <a href="/posts/delete/{{posts.id}}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
